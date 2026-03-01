@@ -1,4 +1,6 @@
 #!/usr/bin/python3
-def my_function():
-    """Documentation de la fonction"""
-    return "Hello from header!"
+import urllib.request
+import sys
+
+with urllib.request.urlopen(sys.argv[1]) as response:
+    print(response.getheader('X-Request-Id'))

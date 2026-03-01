@@ -1,6 +1,8 @@
-#!/usr/bin/python3
-for i in range(100):
-    if i < 99:
-        print("{:02d}, ".format(i), end="")
-    else:
-        print("{:02d}".format(i))
+#!/bin/bash
+for i in {0..99}; do
+    if [ $i -lt 99 ]; then
+        printf "%02d, " $i
+    else
+        printf "%02d\n" $i
+    fi
+done

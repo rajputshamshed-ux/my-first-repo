@@ -2,14 +2,12 @@
 import requests
 import sys
 
-if __name__ == "__main__":
-    username = sys.argv[1]
-    token = sys.argv[2]
-    
-    url = f"https://api.github.com/users/{username}"
-    response = requests.get(url, auth=(username, token))
-    
-    if response.status_code == 200:
-        print(response.json().get('id'))
-    else:
-        print(None)
+username = sys.argv[1]
+password = sys.argv[2]
+
+r = requests.get('https://api.github.com/user', auth=(username, password))
+
+if r.status_code == 200:
+    print(r.json()['id'])
+else:
+    print(None)
